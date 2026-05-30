@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Miss Philippines Northwest USA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--gold:#C9A227;--gold-light:#E8C96A;--gold-dark:#8B6F15;--gold-pale:#FAF3DC;--black:#0A0A0A;--white:#FFFFFF;--gray:#F5F3EE;--muted:#6B6357;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--white);color:var(--black);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.97);border-bottom:1px solid rgba(201,162,39,0.2);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.nav-logo-wrap{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+.nav-logo-img{height:42px;width:42px;object-fit:contain;}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--gold);letter-spacing:0.05em;line-height:1.2;}
+.nav-links{display:flex;gap:1.4rem;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;transition:color 0.3s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--black);padding:0.45rem 1.1rem;font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background 0.3s;white-space:nowrap;}
+.nav-cta:hover{background:var(--gold-light);}
+section{padding:5.5rem 2rem;}
+.container{max-width:1100px;margin:0 auto;}
+.s-label{font-size:0.58rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.85rem;display:block;}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.1;margin-bottom:1.25rem;}
+.gold-bar{width:50px;height:2px;background:var(--gold);margin:1.25rem 0;}
+.btn-gold{background:var(--gold);color:var(--black);padding:0.9rem 2.2rem;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all 0.3s;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+.btn-ghost{border:1px solid rgba(201,162,39,0.5);color:var(--gold);padding:0.9rem 2.2rem;font-size:0.68rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all 0.3s;}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(201,162,39,0.08);}
+.btn-ghost-white{border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.75);padding:0.9rem 2.2rem;font-size:0.68rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all 0.3s;}
+.btn-ghost-white:hover{border-color:var(--white);color:var(--white);}
+.hero{min-height:100vh;background:#0A0A0A;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,162,39,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,162,39,0.04) 1px,transparent 1px);background-size:80px 80px;}
+.hero-glow{position:absolute;width:700px;height:500px;border-radius:50%;background:radial-gradient(ellipse,rgba(201,162,39,0.06) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);}
+.hero-content{text-align:center;position:relative;z-index:2;padding:2rem;}
+.hero-logo{width:100px;height:100px;object-fit:contain;margin-bottom:1.5rem;animation:float 3s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.hero-year{display:inline-flex;align-items:center;gap:0.75rem;background:rgba(201,162,39,0.08);border:1px solid rgba(201,162,39,0.2);padding:0.4rem 1.25rem;font-size:0.58rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.75rem;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:300;color:var(--white);line-height:1.05;margin-bottom:0.75rem;}
+.hero-title em{color:var(--gold);font-style:italic;}
+.hero-tagline{font-size:0.65rem;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:2.5rem;}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;}
+.scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sa 2s ease-in-out infinite;}
+@keyframes sa{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}100%{transform:scaleY(0);transform-origin:bottom;}}
+.scroll-txt{font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2);}
+.about{background:var(--black);}
+.about .s-title{color:var(--white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-text p{font-size:0.86rem;line-height:1.95;color:rgba(255,255,255,0.65);margin-bottom:1.1rem;}
+.about-text strong{color:var(--gold);}
+.about-mission{background:rgba(201,162,39,0.06);border-left:3px solid var(--gold);padding:1.5rem 2rem;margin-top:1.75rem;}
+.about-mission p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:rgba(255,255,255,0.75);line-height:1.75;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.75rem;}
+.stat{border:1px solid rgba(201,162,39,0.18);padding:1.25rem;text-align:center;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--gold);display:block;}
+.stat-l{font-size:0.58rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:0.2rem;display:block;}
+.about-box{background:rgba(201,162,39,0.04);border:1px solid rgba(201,162,39,0.12);padding:3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:320px;}
+.about-box img{width:160px;height:160px;object-fit:contain;margin-bottom:1.5rem;}
+.about-box-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--gold);line-height:1.3;margin-bottom:0.5rem;}
+.about-box-sub{font-size:0.58rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,162,39,0.4);}
+.pillars{background:var(--gray);}
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.25rem;margin-top:2.5rem;}
+.pillar{background:var(--white);padding:1.75rem;border-bottom:3px solid var(--gold);transition:transform 0.3s,box-shadow 0.3s;}
+.pillar:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(201,162,39,0.12);}
+.pillar-icon{font-size:1.6rem;margin-bottom:0.85rem;}
+.pillar-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:0.6rem;}
+.pillar-desc{font-size:0.75rem;line-height:1.8;color:var(--muted);}
+.queens{background:var(--black);}
+.queens .s-title{color:var(--white);}
+.queens-intro{max-width:680px;font-size:0.86rem;line-height:1.9;color:rgba(255,255,255,0.55);margin-bottom:2.5rem;}
+.group-wrap{position:relative;margin-bottom:2.5rem;}
+.group-img{width:100%;display:block;object-fit:cover;max-height:650px;}
+.group-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(10,10,10,0.97) 0%,rgba(10,10,10,0.5) 55%,transparent 100%);padding:2.5rem;}
+.group-org{font-size:0.56rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;}
+.group-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3vw,2.4rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:1.25rem;}
+.group-title em{color:var(--gold);font-style:italic;}
+.group-tags{display:flex;gap:0.6rem;flex-wrap:wrap;}
+.g-tag{border:1px solid rgba(201,162,39,0.3);padding:0.5rem 1rem;background:rgba(0,0,0,0.55);}
+.g-tag-badge{font-size:0.5rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.15rem;}
+.g-tag-name{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--white);display:block;}
+.g-tag-loc{font-size:0.55rem;color:rgba(255,255,255,0.35);display:block;margin-top:0.1rem;}
+.queens-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2.5rem;}
+.queen-card{position:relative;overflow:hidden;background:var(--black);transition:transform 0.35s;}
+.queen-card:hover{transform:translateY(-5px);}
+.queen-card.featured{border:2px solid var(--gold);}
+.queen-card.secondary{border:1px solid rgba(201,162,39,0.22);}
+.queen-img-wrap{position:relative;height:380px;overflow:hidden;}
+.queen-img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s;}
+.queen-card:hover .queen-img{transform:scale(1.04);}
+.ribbon{position:absolute;top:1rem;left:0;z-index:3;padding:0.38rem 1rem 0.38rem 0.85rem;}
+.ribbon.crown{background:var(--gold);color:var(--black);}
+.ribbon.first{background:rgba(10,10,10,0.85);border:1px solid rgba(201,162,39,0.45);color:rgba(255,255,255,0.85);}
+.ribbon.second{background:rgba(10,10,10,0.85);border:1px solid rgba(201,162,39,0.3);color:rgba(255,255,255,0.65);}
+.ribbon span{font-size:0.54rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;}
+.queen-img-grad{position:absolute;bottom:0;left:0;right:0;height:45%;background:linear-gradient(to top,rgba(10,10,10,1) 0%,transparent 100%);pointer-events:none;}
+.queen-body{padding:1.25rem 1.4rem 1.6rem;}
+.queen-placement{font-size:0.54rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.35rem;display:block;}
+.queen-name{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;color:var(--white);line-height:1.15;margin-bottom:0.25rem;}
+.queen-province{font-size:0.6rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:0.75rem;}
+.queen-org-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(201,162,39,0.07);border:1px solid rgba(201,162,39,0.15);padding:0.3rem 0.75rem;font-size:0.6rem;color:rgba(255,255,255,0.5);}
+.queen-org-badge strong{color:rgba(255,255,255,0.72);font-weight:600;}
+.bootcamp-announce{background:rgba(201,162,39,0.05);border:1px solid rgba(201,162,39,0.18);padding:1.75rem 2rem;display:flex;align-items:center;gap:1.75rem;flex-wrap:wrap;}
+.ba-icon{font-size:2.2rem;flex-shrink:0;}
+.ba-text strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--gold);font-weight:400;margin-bottom:0.3rem;}
+.ba-text p{font-size:0.76rem;color:rgba(255,255,255,0.45);line-height:1.75;}
+.ba-text em{color:rgba(255,255,255,0.72);font-style:normal;font-weight:600;}
+.ba-btn{background:var(--gold);color:var(--black);padding:0.8rem 1.5rem;font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;white-space:nowrap;margin-left:auto;display:inline-block;transition:background 0.3s;flex-shrink:0;}
+.ba-btn:hover{background:var(--gold-light);}
+.pageant{background:var(--white);}
+.pageant-hero-band{background:var(--black);padding:3rem 2rem;text-align:center;position:relative;overflow:hidden;margin-bottom:3rem;}
+.phb-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,162,39,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,162,39,0.03) 1px,transparent 1px);background-size:60px 60px;}
+.phb-inner{position:relative;z-index:1;}
+.phb-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,4rem);font-weight:300;color:var(--white);line-height:1.05;margin-bottom:0.75rem;}
+.phb-title em{color:var(--gold);font-style:italic;}
+.phb-sub{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:2rem;}
+.phb-prizes{display:inline-flex;border:1px solid rgba(201,162,39,0.2);flex-wrap:wrap;}
+.phb-prize{padding:1.25rem 2rem;text-align:center;border-right:1px solid rgba(201,162,39,0.15);}
+.phb-prize:last-child{border-right:none;}
+.phb-prize-icon{font-size:1.4rem;display:block;margin-bottom:0.3rem;}
+.phb-prize-label{font-size:0.54rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);display:block;}
+.phb-prize-val{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--gold);display:block;margin-top:0.15rem;}
+.package-card{background:var(--black);border:2px solid var(--gold);overflow:hidden;margin-bottom:3rem;}
+.package-header{background:var(--gold);padding:1.5rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.package-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--black);}
+.package-price{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--black);line-height:1;}
+.package-price-label{font-size:0.58rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(0,0,0,0.5);display:block;margin-top:0.15rem;text-align:right;}
+.package-body{padding:2.25rem;}
+.package-intro{font-size:0.84rem;line-height:1.9;color:rgba(255,255,255,0.55);margin-bottom:1.75rem;}
+.package-includes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0.85rem;}
+.pi-item{display:flex;gap:0.8rem;align-items:flex-start;background:rgba(255,255,255,0.03);border:1px solid rgba(201,162,39,0.1);padding:1rem;}
+.pi-check{width:20px;height:20px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--black);font-weight:700;flex-shrink:0;margin-top:1px;}
+.pi-text strong{display:block;font-size:0.78rem;color:var(--white);margin-bottom:0.12rem;}
+.pi-text span{font-size:0.7rem;color:rgba(255,255,255,0.4);line-height:1.6;}
+.prize-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.25rem;margin:2rem 0;}
+.prize-card{border:1px solid rgba(201,162,39,0.18);padding:1.75rem;text-align:center;transition:border-color 0.3s;position:relative;}
+.prize-card:hover{border-color:var(--gold);}
+.prize-card.main{border-color:var(--gold);border-width:2px;}
+.prize-card.main::before{content:'GRAND PRIZE';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--black);font-size:0.5rem;font-weight:700;letter-spacing:0.18em;padding:0.2rem 0.75rem;white-space:nowrap;}
+.prize-icon{font-size:1.8rem;margin-bottom:0.85rem;display:block;}
+.prize-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--gold);margin-bottom:0.5rem;}
+.prize-desc{font-size:0.73rem;color:var(--muted);line-height:1.75;}
+.prize-desc strong{color:var(--black);display:block;margin-bottom:0.2rem;}
+.bootcamp{background:var(--black);position:relative;overflow:hidden;}
+.bootcamp-wm{position:absolute;font-family:'Cormorant Garamond',serif;font-size:18vw;font-weight:700;color:rgba(201,162,39,0.025);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;}
+.bootcamp .s-title{color:var(--white);}
+.aq-intro{font-size:0.86rem;line-height:1.9;color:rgba(255,255,255,0.55);max-width:750px;margin-bottom:0.75rem;}
+.aq-badge{display:inline-block;background:var(--gold);color:var(--black);font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.35rem 1rem;margin-bottom:2.25rem;}
+.aq-about{background:rgba(201,162,39,0.04);border:1px solid rgba(201,162,39,0.12);padding:2rem;margin-bottom:2rem;}
+.aq-about h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--gold);margin-bottom:1rem;}
+.aq-about p{font-size:0.82rem;line-height:1.9;color:rgba(255,255,255,0.55);margin-bottom:0.85rem;}
+.modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:0.65rem;margin-top:0.5rem;}
+.mod{background:rgba(201,162,39,0.06);border:1px solid rgba(201,162,39,0.1);padding:0.75rem 1rem;display:flex;align-items:center;gap:0.6rem;}
+.mod-n{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);font-weight:600;min-width:20px;}
+.mod-name{font-size:0.7rem;font-weight:600;color:rgba(255,255,255,0.75);}
+.camp-cities{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2.5rem;}
+.ccc{border:1px solid rgba(201,162,39,0.2);transition:border-color 0.3s;}
+.ccc:hover{border-color:var(--gold);}
+.ccc-head{background:rgba(201,162,39,0.07);padding:1.5rem;border-bottom:1px solid rgba(201,162,39,0.1);}
+.ccc-city{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--gold);}
+.ccc-state{font-size:0.56rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,162,39,0.4);margin-top:0.2rem;}
+.ccc-body{padding:1.5rem;}
+.ccc-date{font-size:0.8rem;font-weight:600;color:var(--white);margin-bottom:0.2rem;}
+.ccc-sub{font-size:0.65rem;color:rgba(255,255,255,0.3);}
+.form-wrap{background:rgba(255,255,255,0.02);border:1px solid rgba(201,162,39,0.18);padding:2.5rem;}
+.form-wrap.light{background:var(--white);border:1px solid #E8E3D8;}
+.form-section-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--white);margin-bottom:1.25rem;padding-bottom:0.6rem;border-bottom:1px solid rgba(201,162,39,0.1);}
+.form-section-title.dark{color:var(--black);border-bottom-color:#E8E3D8;}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.f-group{display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1.1rem;}
+.f-group label{font-size:0.58rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.f-group label.dark{color:var(--muted);}
+.f-group input,.f-group select,.f-group textarea{background:rgba(255,255,255,0.04);border:1px solid rgba(201,162,39,0.18);padding:0.75rem 1rem;font-family:'Montserrat',sans-serif;font-size:0.8rem;color:var(--white);outline:none;transition:border-color 0.3s;width:100%;}
+.f-group input.light,.f-group select.light,.f-group textarea.light{background:var(--white);border:1px solid #E8E3D8;color:var(--black);}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,0.18);}
+.f-group input.light::placeholder,.f-group textarea.light::placeholder{color:#BBB;}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:var(--gold);}
+.f-group select option{background:#111;color:var(--white);}
+.f-group select.light option{background:var(--white);color:var(--black);}
+.f-divider{height:1px;background:rgba(201,162,39,0.1);margin:1.5rem 0;}
+.f-divider.light{background:#E8E3D8;}
+.city-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:1.1rem;}
+.c-opt input[type=radio]{position:absolute;opacity:0;width:0;height:0;}
+.c-opt label{display:block;border:1px solid rgba(201,162,39,0.18);padding:1rem;text-align:center;cursor:pointer;transition:all 0.2s;}
+.c-opt label:hover{border-color:rgba(201,162,39,0.45);}
+.c-opt input:checked+label{border-color:var(--gold);background:rgba(201,162,39,0.09);}
+.c-opt-city{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--gold);display:block;font-weight:600;}
+.c-opt-date{font-size:0.58rem;color:rgba(255,255,255,0.32);display:block;margin-top:0.12rem;}
+.payment-box{background:rgba(201,162,39,0.04);border:1px solid rgba(201,162,39,0.18);padding:1.75rem;margin:1.5rem 0;}
+.payment-box h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.4rem;}
+.payment-box p{font-size:0.76rem;color:rgba(255,255,255,0.4);line-height:1.75;margin-bottom:1.25rem;}
+.p-amount-row{display:flex;align-items:baseline;gap:0.75rem;margin-bottom:0.4rem;}
+.p-amount{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:var(--gold);}
+.p-desc{font-size:0.6rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.28);line-height:1.7;}
+.p-includes{font-size:0.7rem;color:rgba(201,162,39,0.65);margin-bottom:1.4rem;font-style:italic;}
+.pp-btn{display:flex;align-items:center;justify-content:center;gap:0.75rem;background:#0070BA;color:var(--white);padding:0.9rem 2rem;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background 0.3s;width:100%;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;}
+.pp-btn:hover{background:#005ea6;}
+.pp-note{font-size:0.62rem;color:rgba(255,255,255,0.22);text-align:center;margin-top:0.85rem;line-height:1.7;}
+.f-submit{background:var(--gold);color:var(--black);border:none;padding:1rem 3rem;font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:background 0.3s;width:100%;margin-top:0.5rem;}
+.f-submit:hover{background:var(--gold-light);}
+.f-note{font-size:0.62rem;color:rgba(255,255,255,0.2);text-align:center;margin-top:0.85rem;line-height:1.7;}
+.f-note.dark{color:var(--muted);}
+.success-msg{display:none;background:rgba(201,162,39,0.07);border:1px solid rgba(201,162,39,0.25);padding:2.5rem;text-align:center;margin-top:1.5rem;}
+.success-msg h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);margin-bottom:0.75rem;}
+.success-msg p{font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.8;}
+.eligibility{background:var(--black);}
+.eligibility .s-title{color:var(--white);}
+.elig-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem;}
+.elig-box{background:rgba(201,162,39,0.04);border:1px solid rgba(201,162,39,0.15);padding:2rem;}
+.elig-box h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--gold);margin-bottom:1.25rem;}
+.req-item{display:flex;gap:0.85rem;align-items:flex-start;margin-bottom:1rem;}
+.req-num{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--gold);line-height:1;min-width:22px;}
+.req-text{font-size:0.77rem;line-height:1.75;color:rgba(255,255,255,0.55);}
+.req-text strong{color:var(--white);display:block;margin-bottom:0.12rem;}
+.steps h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--white);margin-bottom:1.25rem;}
+.step{display:flex;gap:1rem;margin-bottom:1.35rem;align-items:flex-start;}
+.step-dot{width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;color:var(--black);flex-shrink:0;margin-top:2px;}
+.step-text strong{display:block;font-size:0.8rem;color:var(--white);margin-bottom:0.15rem;}
+.step-text span{font-size:0.72rem;color:rgba(255,255,255,0.4);line-height:1.6;}
+.sponsors{background:var(--gray);}
+.nonprofit-banner{background:var(--black);padding:1.75rem 2rem;margin-bottom:2.5rem;display:flex;align-items:center;gap:1.75rem;flex-wrap:wrap;}
+.nb-icon{font-size:2rem;flex-shrink:0;}
+.nb-text strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:var(--gold);margin-bottom:0.25rem;}
+.nb-text p{font-size:0.76rem;color:rgba(255,255,255,0.5);line-height:1.75;}
+.nb-badge{background:rgba(201,162,39,0.12);border:1px solid rgba(201,162,39,0.3);padding:0.38rem 0.9rem;font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);white-space:nowrap;flex-shrink:0;margin-left:auto;}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem;}
+.impact-card{background:var(--white);padding:1.5rem;text-align:center;border-bottom:3px solid var(--gold);}
+.impact-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--gold);display:block;}
+.impact-label{font-size:0.58rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:0.4rem;display:block;line-height:1.5;}
+.tier-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.1rem;}
+.tier-name-label{font-size:0.58rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);}
+.tier-line{flex:1;height:1px;background:#DDD;}
+.sponsor-logos{display:flex;gap:0.85rem;flex-wrap:wrap;margin-bottom:2rem;}
+.s-box{background:var(--white);border:1px solid #E8E3D8;padding:1.1rem 1.75rem;font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--muted);min-width:150px;text-align:center;transition:border-color 0.3s;}
+.s-box:hover{border-color:var(--gold);}
+.s-box.featured{border-color:rgba(201,162,39,0.4);color:var(--gold-dark);font-weight:600;}
+.s-box.open{border:1px dashed rgba(201,162,39,0.3);color:#BBB;font-size:0.78rem;font-style:italic;}
+.tier-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:1rem;margin-bottom:2rem;}
+.tier-card{background:var(--white);border:1px solid #E8E3D8;padding:1.4rem;transition:border-color 0.3s,transform 0.3s;}
+.tier-card:hover{border-color:var(--gold);transform:translateY(-2px);}
+.tc-icon{font-size:1.4rem;margin-bottom:0.7rem;}
+.tc-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--black);margin-bottom:0.35rem;}
+.tc-desc{font-size:0.7rem;color:var(--muted);line-height:1.7;}
+.sponsor-cta{background:var(--black);padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.sponsor-cta p{font-size:0.8rem;color:rgba(255,255,255,0.55);}
+.sponsor-cta strong{color:var(--white);display:block;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;margin-bottom:0.2rem;}
+.donation{background:var(--black);padding:5.5rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.donation-bg{position:absolute;inset:0;font-family:'Cormorant Garamond',serif;font-size:14vw;font-weight:700;color:rgba(201,162,39,0.025);display:flex;align-items:center;justify-content:center;pointer-events:none;}
+.donation-inner{position:relative;z-index:1;max-width:640px;margin:0 auto;}
+.donation-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:1rem;}
+.donation-title em{color:var(--gold);font-style:italic;}
+.donation-desc{font-size:0.82rem;line-height:1.9;color:rgba(255,255,255,0.45);margin-bottom:1.5rem;}
+.tax-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(201,162,39,0.09);border:1px solid rgba(201,162,39,0.22);padding:0.45rem 1.1rem;font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;}
+.impact-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.85rem;margin:1.75rem 0;text-align:left;}
+.il-item{background:rgba(201,162,39,0.04);border:1px solid rgba(201,162,39,0.1);padding:1rem;display:flex;gap:0.7rem;align-items:flex-start;}
+.il-check{width:18px;height:18px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:var(--black);font-weight:700;flex-shrink:0;margin-top:2px;}
+.il-text{font-size:0.74rem;color:rgba(255,255,255,0.55);line-height:1.65;}
+.donation-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.donation-contact{margin-top:1.75rem;font-size:0.7rem;color:rgba(255,255,255,0.25);line-height:1.9;}
+.donation-contact a{color:var(--gold);text-decoration:none;}
+.events{background:var(--white);}
+.events-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:180px 180px;gap:0.85rem;margin-top:2.5rem;}
+.ev{background:var(--gray);border:1px solid #E8E3D8;display:flex;align-items:flex-end;padding:1.25rem;position:relative;overflow:hidden;transition:border-color 0.3s;}
+.ev:hover{border-color:var(--gold);}
+.ev.large{grid-row:span 2;}
+.ev-bg{position:absolute;inset:0;font-size:4rem;display:flex;align-items:center;justify-content:center;opacity:0.12;}
+.ev-label span{display:block;font-size:0.56rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.2rem;}
+.ev-label strong{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--black);}
+.contact{background:var(--gray);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:2.5rem;}
+.contact-info p{font-size:0.85rem;line-height:1.9;color:var(--muted);margin-bottom:1.75rem;}
+.c-item{display:flex;gap:0.85rem;margin-bottom:1.25rem;align-items:flex-start;}
+.c-icon{width:36px;height:36px;border:1px solid rgba(201,162,39,0.28);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+.c-detail strong{display:block;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.12rem;}
+.c-detail span{font-size:0.76rem;color:var(--muted);}
+.socials{display:flex;gap:0.6rem;margin-top:1.75rem;flex-wrap:wrap;}
+.soc-btn{border:1px solid #E8E3D8;padding:0.5rem 0.85rem;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;color:var(--black);transition:all 0.3s;}
+.soc-btn:hover{background:var(--black);color:var(--white);border-color:var(--black);}
+.contact-card{background:var(--white);border:1px solid #E8E3D8;min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;gap:0.75rem;}
+.contact-card img{width:90px;height:90px;object-fit:contain;margin-bottom:0.5rem;}
+.contact-card strong{font-family:'Cormorant Garamond',serif;font-size:1.2rem;}
+.contact-card p{font-size:0.76rem;color:var(--muted);line-height:1.8;}
+footer{background:#050505;padding:2.5rem 2rem;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--gold);}
+.footer-links{display:flex;gap:1.1rem;flex-wrap:wrap;}
+.footer-links a{font-size:0.58rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.22);text-decoration:none;transition:color 0.3s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-size:0.58rem;color:rgba(255,255,255,0.12);}
+@media(max-width:768px){
+.nav-links{display:none;}
+.about-grid,.elig-grid,.contact-grid{grid-template-columns:1fr;}
+.queens-grid,.camp-cities,.city-opts,.f-row{grid-template-columns:1fr;}
+.events-grid{grid-template-columns:1fr;grid-template-rows:auto;}
+.ev.large{grid-row:span 1;}
+.impact-grid{grid-template-columns:repeat(2,1fr);}
+.group-tags,.bootcamp-announce{flex-direction:column;}
+.ba-btn{margin-left:0;width:100%;text-align:center;}
+.nonprofit-banner{flex-direction:column;}
+.nb-badge{margin-left:0;}
+.phb-prizes{flex-direction:column;width:100%;}
+.phb-prize{border-right:none;border-bottom:1px solid rgba(201,162,39,0.15);}
+.phb-prize:last-child{border-bottom:none;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo-wrap">
+      <img class="nav-logo-img" src="logo.jpeg" alt="MPNW Logo"/>
+      <span class="nav-logo-text">Miss Philippines<br/>Northwest USA</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#queens">Queens</a></li>
+      <li><a href="#pageant">Pageant</a></li>
+      <li><a href="#bootcamp">Boot Camp</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#pageant-apply" class="nav-cta">Apply Now</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <img class="hero-logo" src="logo.jpeg" alt="MPNW Logo"/>
+    <div class="hero-year">Est. 2025 · Year Two · Kingdom Builder Foundation · 501(c)(3)</div>
+    <h1 class="hero-title">The Miss Philippines<br/><em>Northwest USA</em></h1>
+    <p class="hero-tagline">Leadership · Culture · Community · Empowerment</p>
+    <div class="hero-btns">
+      <a href="#pageant-apply" class="btn-gold">Apply to Compete</a>
+      <a href="#bootcamp" class="btn-ghost">Aces &amp; Queens Boot Camp</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-txt">Scroll</span></div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="s-label">About MPNW</span>
+        <h2 class="s-title">More Than a Pageant.<br/>A Movement.</h2>
+        <div class="gold-bar"></div>
+        <p>Founded in <strong>2025</strong> and now proudly in our <strong>second year</strong>, Miss Philippines Northwest USA is a leadership and empowerment platform for Filipina women, supported by the Kingdom Builder Foundation — a federally recognized <strong>501(c)(3) non-profit organization</strong>.</p>
+        <p>We develop women through culture, confidence, community service, professional growth, and mentorship — creating opportunities that extend <strong>far beyond the competition stage</strong>.</p>
+        <p>Our platform represents the Pacific Northwest and connects candidates to national and international stages, including a direct pathway to <strong>Miss Universe Philippines</strong>.</p>
+        <div class="about-mission"><p>"To empower Filipina women across the Pacific Northwest by celebrating culture, confidence, leadership, and community service while developing them as leaders on and off the stage."</p></div>
+        <div class="stats-grid">
+          <div class="stat"><span class="stat-n">2025</span><span class="stat-l">Year Founded</span></div>
+          <div class="stat"><span class="stat-n">2nd</span><span class="stat-l">Batch · 2026</span></div>
+          <div class="stat"><span class="stat-n">18+</span><span class="stat-l">Age to Apply</span></div>
+          <div class="stat"><span class="stat-n">25%</span><span class="stat-l">Min. Filipino Heritage</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="about-box">
+          <img src="logo.jpeg" alt="MPNW Logo"/>
+          <div class="about-box-title">The Miss Philippines<br/>Northwest USA</div>
+          <div class="about-box-sub">Est. 2025 · Pacific Northwest · USA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars" id="pillars">
+  <div class="container">
+    <span class="s-label">What We Stand For</span>
+    <h2 class="s-title">Our Core Pillars</h2>
+    <div class="gold-bar"></div>
+    <div class="pillars-grid">
+      <div class="pillar"><div class="pillar-icon">👑</div><h3 class="pillar-title">Leadership</h3><p class="pillar-desc">Developing women who positively influence their communities through public speaking, interview coaching, and personal branding.</p></div>
+      <div class="pillar"><div class="pillar-icon">🌺</div><h3 class="pillar-title">Culture</h3><p class="pillar-desc">Celebrating and preserving Filipino heritage while building bridges between communities across the Pacific Northwest.</p></div>
+      <div class="pillar"><div class="pillar-icon">💛</div><h3 class="pillar-title">Empowerment</h3><p class="pillar-desc">Financial literacy workshops, wealth-building education, and entrepreneurship exposure to help women reach their fullest potential.</p></div>
+      <div class="pillar"><div class="pillar-icon">🤝</div><h3 class="pillar-title">Service</h3><p class="pillar-desc">Community volunteerism, advocacy, and partnerships for lasting social impact across the Filipino-American community.</p></div>
+      <div class="pillar"><div class="pillar-icon">🌟</div><h3 class="pillar-title">Sisterhood</h3><p class="pillar-desc">A lifelong network of empowered Filipinas who uplift, mentor, and support one another long after the pageant.</p></div>
+      <div class="pillar"><div class="pillar-icon">🎯</div><h3 class="pillar-title">Purpose</h3><p class="pillar-desc">Using pageantry as a platform for meaningful advocacy and representing the Filipino community with dignity and pride.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="queens" id="queens">
+  <div class="container">
+    <span class="s-label">Miss Universe Philippines Northwest · 2025</span>
+    <h2 class="s-title">Meet Our Queens</h2>
+    <div class="gold-bar"></div>
+    <p class="queens-intro">From our inaugural 2025 season — three extraordinary Filipina women who represented the Northwest on a national stage with grace, power, and purpose. They are joining the Aces &amp; Queens USA Boot Camp Tour this summer as featured guests.</p>
+    <div class="group-wrap">
+      <img class="group-img" src="queens-group.png" alt="Miss Universe Philippines Northwest Queens 2025"/>
+      <div class="group-overlay">
+        <div class="group-org">Miss Universe Philippines · Northwest · 2025</div>
+        <div class="group-title">The Queens of <em>Northwest USA</em></div>
+        <div class="group-tags">
+          <div class="g-tag"><span class="g-tag-badge">👑 Reigning Queen</span><span class="g-tag-name">Jacqueline Aluning</span><span class="g-tag-loc">Nueva Vizcaya · Filipino Society of Washington</span></div>
+          <div class="g-tag"><span class="g-tag-badge">1st Runner-Up</span><span class="g-tag-name">Rachel Hanna Gozum</span><span class="g-tag-loc">Santo Tomas, La Union · Filipino Society of Seattle</span></div>
+          <div class="g-tag"><span class="g-tag-badge">2nd Runner-Up</span><span class="g-tag-name">Jayka Noelle Munsayac</span><span class="g-tag-loc">San Jose, Negros Oriental · Filipino Society of Bellevue</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="queens-grid">
+      <div class="queen-card featured">
+        <div class="ribbon crown"><span>👑 Reigning Queen</span></div>
+        <div class="queen-img-wrap"><img class="queen-img" src="jaia.png" alt="Jacqueline Aluning"/><div class="queen-img-grad"></div></div>
+        <div class="queen-body">
+          <span class="queen-placement">Reigning Queen · MUPH Northwest 2025</span>
+          <div class="queen-name">Jacqueline Aluning</div>
+          <div class="queen-province">Nueva Vizcaya</div>
+          <div class="queen-org-badge"><strong>Filipino Society of Washington</strong></div>
+        </div>
+      </div>
+      <div class="queen-card secondary">
+        <div class="ribbon first"><span>1st Runner-Up</span></div>
+        <div class="queen-img-wrap"><img class="queen-img" src="hanna.png" alt="Rachel Hanna Gozum"/><div class="queen-img-grad"></div></div>
+        <div class="queen-body">
+          <span class="queen-placement">1st Runner-Up · MUPH Northwest 2025</span>
+          <div class="queen-name">Rachel Hanna Gozum</div>
+          <div class="queen-province">Santo Tomas, La Union</div>
+          <div class="queen-org-badge"><strong>Filipino Society of Seattle, Washington</strong></div>
+        </div>
+      </div>
+      <div class="queen-card secondary">
+        <div class="ribbon second"><span>2nd Runner-Up</span></div>
+        <div class="queen-img-wrap"><img class="queen-img" src="jayka.png" alt="Jayka Noelle Munsayac"/><div class="queen-img-grad"></div></div>
+        <div class="queen-body">
+          <span class="queen-placement">2nd Runner-Up · MUPH Northwest 2025</span>
+          <div class="queen-name">Jayka Noelle Munsayac</div>
+          <div class="queen-province">San Jose, Negros Oriental</div>
+          <div class="queen-org-badge"><strong>Filipino Society of Bellevue, Washington</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="bootcamp-announce">
+      <div class="ba-icon">🎤</div>
+      <div class="ba-text">
+        <strong>Meet Them at the Boot Camp!</strong>
+        <p>Jacqueline, Rachel Hanna, and Jayka Noelle are joining the <em>Aces &amp; Queens USA Boot Camp Tour</em> this summer as featured guests at <em>Los Angeles · Portland · Seattle</em> — August 2026.</p>
+      </div>
+      <a href="#bootcamp" class="ba-btn">Register for Boot Camp</a>
+    </div>
+  </div>
+</section>
+
+<section class="pageant" id="pageant">
+  <div class="container">
+    <div class="pageant-hero-band">
+      <div class="phb-grid"></div>
+      <div class="phb-inner">
+        <span class="s-label" style="display:block;text-align:center;">Miss Philippines Northwest USA · 2026 · Second Batch</span>
+        <h2 class="phb-title">Your Crown <em>Awaits</em></h2>
+        <p class="phb-sub">Now Accepting Applications · Open Nationwide · Ages 18+ · 25% Filipino Heritage</p>
+        <div style="display:flex;justify-content:center;">
+          <div class="phb-prizes">
+            <div class="phb-prize"><span class="phb-prize-icon">🌏</span><span class="phb-prize-label">Grand Prize</span><span class="phb-prize-val">Miss Universe Philippines 2027</span></div>
+            <div class="phb-prize"><span class="phb-prize-icon">✈️</span><span class="phb-prize-label">Journey Expenses</span><span class="phb-prize-val">Mostly Covered</span></div>
+            <div class="phb-prize"><span class="phb-prize-icon">🎓</span><span class="phb-prize-label">Includes</span><span class="phb-prize-val">Aces &amp; Queens Boot Camp</span></div>
+            <div class="phb-prize"><span class="phb-prize-icon">💰</span><span class="phb-prize-label">Participation Fee</span><span class="phb-prize-val">$1,500 USD</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="s-label">2026 Candidate Package</span>
+    <h2 class="s-title">Everything Included in Your $1,500 Entry</h2>
+    <div class="gold-bar"></div>
+    <div class="package-card">
+      <div class="package-header">
+        <div class="package-title">MPNW 2026 Candidate Package</div>
+        <div><span class="package-price">$1,500</span><span class="package-price-label">USD · All Inclusive</span></div>
+      </div>
+      <div class="package-body">
+        <p class="package-intro">One fee covers your entire journey — from Aces &amp; Queens Boot Camp training to competing for the crown and a pathway to Miss Universe Philippines 2027.</p>
+        <div class="package-includes">
+          <div class="pi-item"><div class="pi-check">✓</div><div class="pi-text"><strong>Aces &amp; Queens Boot Camp</strong><span>Full 2-day intensive in your chosen city — LA, Portland, or Seattle</span></div></div>
+          <div class="pi-item"><div class="pi-check">✓</div><div class="pi-text"><strong>Pageant Competition Entry</strong><span>Official candidacy in MPNW 2026 — competing for the crown</span></div></div>
+          <div class="pi-item"><div class="pi-check">✓</div><div class="pi-text"><strong>Candidate Development Program</strong><span>Runway, public speaking, interview coaching, personal branding</span></div></div>
+          <div class="pi-item"><div class="pi-check">✓</div><div class="pi-text"><strong>Professional Photoshoot</strong><span>Official candidate portrait session for MPNW media and platforms</span></div></div>
+          <div class="pi-item"><div class="pi-check">✓</div><div class="pi-text"><strong>Financial Literacy Workshop</strong><span>Exclusive wealth-building and empowerment sessions</span></div></div>
+          <div class="pi-item"><div class="pi-check">✓</div><div class="pi-text"><strong>Leadership &amp; Mentorship</strong><span>Access to the MPNW sisterhood network and community leaders</span></div></div>
+          <div class="pi-item"><div class="pi-check">✓</div><div class="pi-text"><strong>Community &amp; Cultural Events</strong><span>Featured appearances at Filipino heritage and community events</span></div></div>
+          <div class="pi-item"><div class="pi-check">✓</div><div class="pi-text"><strong>Social Media Features</strong><span>Spotlight on MPNW Instagram, Facebook, and TikTok</span></div></div>
+        </div>
+      </div>
+    </div>
+    <span class="s-label">What You Can Win</span>
+    <h2 class="s-title">Prizes &amp; Opportunities</h2>
+    <div class="gold-bar"></div>
+    <div class="prize-grid">
+      <div class="prize-card main"><span class="prize-icon">🌏</span><div class="prize-title">Miss Universe Philippines 2027</div><div class="prize-desc"><strong>The Ultimate Crown</strong>The winner earns the right to represent the Pacific Northwest at Miss Universe Philippines 2027.</div></div>
+      <div class="prize-card"><span class="prize-icon">✈️</span><div class="prize-title">Journey Expenses Covered</div><div class="prize-desc"><strong>Travel &amp; Representation</strong>The majority of the winner's journey expenses will be covered throughout her reign.</div></div>
+      <div class="prize-card"><span class="prize-icon">👑</span><div class="prize-title">Reigning Queen Benefits</div><div class="prize-desc"><strong>A Year of Opportunities</strong>Community appearances, media features, brand partnerships, and speaking engagements.</div></div>
+      <div class="prize-card"><span class="prize-icon">🤝</span><div class="prize-title">Lifelong Sisterhood</div><div class="prize-desc"><strong>Beyond the Crown</strong>All candidates become part of the MPNW sisterhood — gaining lifelong connections and mentorship.</div></div>
+    </div>
+    <div class="f-divider light"></div>
+    <span class="s-label" id="pageant-apply">Apply Now · 2026</span>
+    <h2 class="s-title">Begin Your Application</h2>
+    <div class="gold-bar"></div>
+    <div class="form-wrap light">
+      <p class="form-section-title dark">Personal Information</p>
+      <div class="f-row">
+        <div class="f-group"><label class="dark">First Name</label><input class="light" type="text" id="a-fname" placeholder="Maria"/></div>
+        <div class="f-group"><label class="dark">Last Name</label><input class="light" type="text" id="a-lname" placeholder="Santos"/></div>
+      </div>
+      <div class="f-row">
+        <div class="f-group"><label class="dark">Email Address</label><input class="light" type="email" id="a-email" placeholder="maria@email.com"/></div>
+        <div class="f-group"><label class="dark">Phone Number</label><input class="light" type="tel" id="a-phone" placeholder="(206) 555-0100"/></div>
+      </div>
+      <div class="f-row">
+        <div class="f-group"><label class="dark">Date of Birth</label><input class="light" type="date" id="a-dob"/></div>
+        <div class="f-group"><label class="dark">City &amp; State</label><input class="light" type="text" id="a-loc" placeholder="Seattle, WA"/></div>
+      </div>
+      <div class="f-row">
+        <div class="f-group"><label class="dark">% Filipino Heritage</label>
+          <select class="light" id="a-heritage"><option value="">— Select —</option><option>25%–49%</option><option>50%–74%</option><option>75%–99%</option><option>100% Filipino</option></select>
+        </div>
+        <div class="f-group"><label class="dark">Preferred Boot Camp City</label>
+          <select class="light" id="a-camp"><option value="">— Select —</option><option>Los Angeles — August 1–2</option><option>Portland — August 15–16</option><option>Seattle — August 22–23</option></select>
+        </div>
+      </div>
+      <div class="f-divider light"></div>
+      <p class="form-section-title dark">About You</p>
+      <div class="f-group"><label class="dark">Tell us about yourself</label><textarea class="light" id="a-about" rows="3" placeholder="Your story, career, education, and community involvement..."></textarea></div>
+      <div class="f-group"><label class="dark">Why do you want to compete in MPNW 2026?</label><textarea class="light" id="a-why" rows="3" placeholder="What drives you and what would winning mean to you and your community?"></textarea></div>
+      <div class="f-group"><label class="dark">What cause would you champion as MPNW Queen?</label><textarea class="light" id="a-advocacy" rows="3" placeholder="Describe the issue or community you are most passionate about..."></textarea></div>
+      <div class="f-row">
+        <div class="f-group"><label class="dark">Pageant / Leadership Experience</label>
+          <select class="light" id="a-exp"><option value="">— Select —</option><option>No prior experience</option><option>Local pageant experience</option><option>Regional or state experience</option><option>National or international experience</option><option>Leadership / community experience</option></select>
+        </div>
+        <div class="f-group"><label class="dark">How did you hear about MPNW?</label>
+          <select class="light" id="a-source"><option value="">— Select —</option><option>Instagram</option><option>Facebook</option><option>TikTok</option><option>Friend or family</option><option>MPNW Website</option><option>Other</option></select>
+        </div>
+      </div>
+      <div class="f-divider light"></div>
+      <div class="payment-box">
+        <h4>Participation Fee</h4>
+        <p>Once accepted, you will submit your fee to confirm candidacy. Do not pay until contacted by our team.</p>
+        <div class="p-amount-row"><span class="p-amount">$1,500</span><span class="p-desc">USD · Full Candidate Package<br/>Pageant + Boot Camp Included</span></div>
+        <p class="p-includes">✨ Includes full Aces &amp; Queens Boot Camp access in your chosen city</p>
+        <a class="pp-btn" href="PAYMENT_LINK_HERE" target="_blank"><span style="font-weight:900;font-size:1rem;">Pay<span style="color:#009cde;">Pal</span></span>&nbsp; Pay $1,500 via PayPal</a>
+        <p class="pp-note">Send payment to: joanne.aguilar@kingdombuilderfoundation.com · Payment link coming soon</p>
+      </div>
+      <button class="f-submit" onclick="handleApply()">Submit My Application</button>
+      <p class="f-note dark">By submitting you confirm you meet all eligibility requirements. The MPNW team will contact you within 3–5 business days.</p>
+      <div class="success-msg" id="apply-success">
+        <h3>Application Received! ♛</h3>
+        <p>Thank you for applying to MPNW 2026! Our team will review your application and reach out within <strong style="color:var(--gold)">3–5 business days</strong>. If selected, you will receive payment instructions to confirm your candidacy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bootcamp" id="bootcamp">
+  <div class="bootcamp-wm">BOOT CAMP</div>
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="s-label">Special Event · Summer 2026</span>
+    <h2 class="s-title">Aces &amp; Queens<br/><span style="color:var(--gold);font-style:italic;font-family:'Cormorant Garamond',serif;">USA Boot Camp Tour</span></h2>
+    <div class="gold-bar"></div>
+    <div class="aq-about">
+      <h3>What is Aces &amp; Queens?</h3>
+      <p>Aces &amp; Queens is the Philippines' most prestigious pageant training camp, founded in 2001. Credited for transforming the Philippines into a global beauty pageant powerhouse, their coaches have trained Miss Universe, Miss World, and Miss International titleholders. According to Agence France Presse, their methods helped make the Philippines "a beauty pageant superpower."</p>
+      <p>For the first time, Aces &amp; Queens is bringing their world-class coaching team to the United States in partnership with MPNW — and our queens Jacqueline Aluning, Rachel Hanna Gozum, and Jayka Noelle Munsayac will be joining as featured guests.</p>
+      <p>The two-day intensive covers six signature training modules:</p>
+      <div class="modules">
+        <div class="mod"><span class="mod-n">01</span><span class="mod-name">Personality Development</span></div>
+        <div class="mod"><span class="mod-n">02</span><span class="mod-name">Image &amp; Styling</span></div>
+        <div class="mod"><span class="mod-n">03</span><span class="mod-name">Hair &amp; Makeup</span></div>
+        <div class="mod"><span class="mod-n">04</span><span class="mod-name">Q&amp;A Preparation</span></div>
+        <div class="mod"><span class="mod-n">05</span><span class="mod-name">Pasarela (Pageant Walk)</span></div>
+        <div class="mod"><span class="mod-n">06</span><span class="mod-name">Fitness &amp; Stage Presence</span></div>
+      </div>
+    </div>
+    <p class="aq-intro">Open to everyone — no pageant experience required. Whether you are an aspiring queen, a titleholder, or simply want to build confidence and stage presence, this boot camp is for you.</p>
+    <span class="aq-badge">Open to All · Ages 14 &amp; Up · No Experience Needed</span>
+    <div class="camp-cities">
+      <div class="ccc"><div class="ccc-head"><div class="ccc-city">Los Angeles</div><div class="ccc-state">California</div></div><div class="ccc-body"><div class="ccc-date">August 1 – 2, 2026</div><div class="ccc-sub">2-Day Intensive · Venue TBA</div></div></div>
+      <div class="ccc"><div class="ccc-head"><div class="ccc-city">Portland</div><div class="ccc-state">Oregon</div></div><div class="ccc-body"><div class="ccc-date">August 15 – 16, 2026</div><div class="ccc-sub">2-Day Intensive · Venue TBA</div></div></div>
+      <div class="ccc"><div class="ccc-head"><div class="ccc-city">Seattle</div><div class="ccc-state">Washington</div></div><div class="ccc-body"><div class="ccc-date">August 22 – 23, 2026</div><div class="ccc-sub">2-Day Intensive · Venue TBA</div></div></div>
+    </div>
+    <span class="s-label">Boot Camp Registration</span>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--white);margin-bottom:2rem;">Reserve Your Spot</h3>
+    <div class="form-wrap">
+      <p class="form-section-title">Personal Information</p>
+      <div class="f-row">
+        <div class="f-group"><label>First Name</label><input type="text" id="r-fname" placeholder="Maria"/></div>
+        <div class="f-group"><label>Last Name</label><input type="text" id="r-lname" placeholder="Santos"/></div>
+      </div>
+      <div class="f-row">
+        <div class="f-group"><label>Email Address</label><input type="email" id="r-email" placeholder="maria@email.com"/></div>
+        <div class="f-group"><label>Phone Number</label><input type="tel" id="r-phone" placeholder="(206) 555-0100"/></div>
+      </div>
+      <div class="f-row">
+        <div class="f-group"><label>Date of Birth</label><input type="date" id="r-dob"/></div>
+        <div class="f-group"><label>Age</label><input type="number" id="r-age" placeholder="e.g. 17" min="14"/></div>
+      </div>
+      <div class="f-row">
+        <div class="f-group"><label>City</label><input type="text" id="r-city" placeholder="Los Angeles"/></div>
+        <div class="f-group"><label>State</label><input type="text" id="r-state" placeholder="CA"/></div>
+      </div>
+      <div class="f-divider"></div>
+      <p class="form-section-title">Boot Camp Selection</p>
+      <label style="font-size:0.58rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:0.75rem;">Choose Your City</label>
+      <div class="city-opts">
+        <div class="c-opt"><input type="radio" name="rcamp" id="r-la" value="Los Angeles"/><label for="r-la"><span class="c-opt-city">Los Angeles</span><span class="c-opt-date">Aug 1–2, 2026</span></label></div>
+        <div class="c-opt"><input type="radio" name="rcamp" id="r-pdx" value="Portland"/><label for="r-pdx"><span class="c-opt-city">Portland</span><span class="c-opt-date">Aug 15–16, 2026</span></label></div>
+        <div class="c-opt"><input type="radio" name="rcamp" id="r-sea" value="Seattle"/><label for="r-sea"><span class="c-opt-city">Seattle</span><span class="c-opt-date">Aug 22–23, 2026</span></label></div>
+      </div>
+      <div class="f-group"><label>Pageant Experience</label>
+        <select id="r-exp"><option value="">— Select —</option><option>No experience — complete beginner</option><option>Some local pageant experience</option><option>Regional or state pageant experience</option><option>National or international experience</option></select>
+      </div>
+      <div class="f-group"><label>What are you hoping to gain from this boot camp?</label>
+        <textarea id="r-goals" rows="3" placeholder="Share your goals and what excites you most about training with Aces &amp; Queens..."></textarea>
+      </div>
+      <div class="f-group"><label>How did you hear about this?</label>
+        <select id="r-source"><option value="">— Select —</option><option>Instagram</option><option>Facebook</option><option>TikTok</option><option>Friend or family</option><option>MPNW Website</option><option>Other</option></select>
+      </div>
+      <div class="f-divider"></div>
+      <div class="payment-box">
+        <h4>Registration Fee</h4>
+        <p>Complete your payment via PayPal after submitting. Your registration is not confirmed until payment is received. Spots are limited per city.</p>
+        <div class="p-amount-row"><span class="p-amount">$700</span><span class="p-desc">USD · Per Participant<br/>Includes Both Days</span></div>
+        <a class="pp-btn" href="PAYMENT_LINK_HERE" target="_blank"><span style="font-weight:900;font-size:1rem;">Pay<span style="color:#009cde;">Pal</span></span>&nbsp; Pay $700 via PayPal</a>
+        <p class="pp-note">Send payment to: joanne.aguilar@kingdombuilderfoundation.com · Payment link coming soon</p>
+      </div>
+      <button class="f-submit" onclick="handleReg()">Submit Boot Camp Registration</button>
+      <p class="f-note">By registering you confirm you are 14 years of age or older. Registration fees are non-refundable. All information is kept confidential.</p>
+      <div class="success-msg" id="reg-success">
+        <h3>You're Registered! ♛</h3>
+        <p>Thank you! Please complete your <strong style="color:var(--gold)">$700 payment via PayPal</strong> to joanne.aguilar@kingdombuilderfoundation.com to confirm your spot. The MPNW team will follow up with venue details.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="eligibility" id="eligibility">
+  <div class="container">
+    <span class="s-label">Pageant Eligibility</span>
+    <h2 class="s-title" style="color:var(--white)">Who Can Compete</h2>
+    <div class="gold-bar"></div>
+    <div class="elig-grid">
+      <div class="elig-box">
+        <h3>Requirements</h3>
+        <div class="req-item"><span class="req-num">01</span><div class="req-text"><strong>Open Nationwide</strong>Any woman from anywhere in the US. No residency requirement in the Pacific Northwest.</div></div>
+        <div class="req-item"><span class="req-num">02</span><div class="req-text"><strong>Age: 18 or Older</strong>All candidates must be at least 18 years of age at time of application.</div></div>
+        <div class="req-item"><span class="req-num">03</span><div class="req-text"><strong>Filipino Heritage</strong>At least 25% Filipino descent. Any mix of heritage is welcome and celebrated.</div></div>
+        <div class="req-item"><span class="req-num">04</span><div class="req-text"><strong>Commitment to Purpose</strong>A genuine desire to lead, serve, and represent the Filipino community with pride.</div></div>
+      </div>
+      <div class="steps">
+        <h3>How It Works</h3>
+        <div class="step"><div class="step-dot">1</div><div class="step-text"><strong>Submit Your Application</strong><span>Complete the form above and tell us about yourself.</span></div></div>
+        <div class="step"><div class="step-dot">2</div><div class="step-text"><strong>Interview &amp; Selection</strong><span>Our team reviews your application and conducts a candidate interview.</span></div></div>
+        <div class="step"><div class="step-dot">3</div><div class="step-text"><strong>Pay &amp; Confirm</strong><span>Submit your $1,500 fee to secure your spot. Includes Aces &amp; Queens Boot Camp.</span></div></div>
+        <div class="step"><div class="step-dot">4</div><div class="step-text"><strong>Training &amp; Boot Camp</strong><span>Join the Aces &amp; Queens Boot Camp and the full MPNW development program.</span></div></div>
+        <div class="step"><div class="step-dot">5</div><div class="step-text"><strong>Compete for the Crown</strong><span>Take the stage at MPNW 2026 and compete for the title and pathway to Miss Universe Philippines 2027.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sponsors" id="sponsors">
+  <div class="container">
+    <span class="s-label">Our Community</span>
+    <h2 class="s-title">Partners, Sponsors &amp; Donors</h2>
+    <div class="gold-bar"></div>
+    <div class="nonprofit-banner">
+      <div class="nb-icon">🏛️</div>
+      <div class="nb-text">
+        <strong>Kingdom Builder Foundation</strong>
+        <p>Miss Philippines Northwest USA is operated under the Kingdom Builder Foundation, a federally recognized 501(c)(3) non-profit. Your sponsorship and donations directly support the development and empowerment of Filipina women across the United States. All donations are tax-deductible.</p>
+      </div>
+      <div class="nb-badge">501(c)(3) Non-Profit</div>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card"><span class="impact-num">2</span><span class="impact-label">Years Empowering Filipina Women</span></div>
+      <div class="impact-card"><span class="impact-num">3</span><span class="impact-label">Cities on Boot Camp Tour</span></div>
+      <div class="impact-card"><span class="impact-num">100%</span><span class="impact-label">of Funds Support Candidates</span></div>
+      <div class="impact-card"><span class="impact-num">∞</span><span class="impact-label">Lives Impacted Through Leadership</span></div>
+    </div>
+    <div class="tier-header"><span class="tier-name-label">Founding Partner</span><div class="tier-line"></div></div>
+    <div class="sponsor-logos"><div class="s-box featured">Kingdom Builder Foundation</div></div>
+    <div class="tier-header"><span class="tier-name-label">Current Sponsors</span><div class="tier-line"></div></div>
+    <div class="sponsor-logos">
+      <div class="s-box open">Your Brand Here</div>
+      <div class="s-box open">Your Brand Here</div>
+      <div class="s-box open">Your Brand Here</div>
+    </div>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--black);margin-bottom:1.5rem;">Sponsorship Opportunities</h3>
+    <div class="tier-header"><span class="tier-name-label">Crown Level</span><div class="tier-line"></div></div>
+    <div class="tier-cards" style="margin-bottom:1.5rem;">
+      <div class="tier-card"><div class="tc-icon">👑</div><div class="tc-title">Title Sponsor</div><div class="tc-desc">Premier placement across all MPNW platforms, events, and media. Named recognition at coronation night and the boot camp tour.</div></div>
+    </div>
+    <div class="tier-header"><span class="tier-name-label">Gold Level</span><div class="tier-line"></div></div>
+    <div class="tier-cards" style="margin-bottom:1.5rem;">
+      <div class="tier-card"><div class="tc-icon">🌟</div><div class="tc-title">Boot Camp Sponsor</div><div class="tc-desc">Brand recognition at one or more Aces &amp; Queens Boot Camp cities. On-site visibility and social media mentions.</div></div>
+      <div class="tier-card"><div class="tc-icon">🎓</div><div class="tc-title">Leadership Sponsor</div><div class="tc-desc">Fund the candidate development academy — runway, public speaking, media coaching, and financial literacy workshops.</div></div>
+      <div class="tier-card"><div class="tc-icon">🌺</div><div class="tc-title">Cultural Events Sponsor</div><div class="tc-desc">Support Filipino heritage events, community showcases, and cultural advocacy programming throughout the season.</div></div>
+    </div>
+    <div class="tier-header"><span class="tier-name-label">Community Level</span><div class="tier-line"></div></div>
+    <div class="tier-cards">
+      <div class="tier-card"><div class="tc-icon">📸</div><div class="tc-title">Media &amp; Content</div><div class="tc-desc">Support photoshoots, video production, and social media campaigns that amplify MPNW's mission.</div></div>
+      <div class="tier-card"><div class="tc-icon">👗</div><div class="tc-title">Wardrobe &amp; Styling</div><div class="tc-desc">In-kind or financial contributions toward gowns, styling, and candidate presentation.</div></div>
+      <div class="tier-card"><div class="tc-icon">💼</div><div class="tc-title">In-Kind Partner</div><div class="tc-desc">Contribute products, services, or expertise that support our candidates and organizational operations.</div></div>
+    </div>
+    <div class="sponsor-cta">
+      <div><p><strong>Become a Sponsor or Donor</strong>Support Filipina leadership in the Pacific Northwest. Contact us to discuss partnership opportunities.</p></div>
+      <a href="#contact" class="btn-gold" style="white-space:nowrap;">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<div class="donation" id="donate">
+  <div class="donation-bg">GIVE</div>
+  <div class="donation-inner">
+    <span class="s-label" style="display:block;text-align:center;">Support Our Mission</span>
+    <h3 class="donation-title">Help Us Continue <em>The Journey</em></h3>
+    <p class="donation-desc">Every dollar donated to the Kingdom Builder Foundation directly funds the development of Filipina women — from leadership training and cultural programming to pageant coaching and community service initiatives.</p>
+    <div class="tax-badge">✓ &nbsp; Tax-Deductible · 501(c)(3) Organization</div>
+    <div class="impact-list">
+      <div class="il-item"><div class="il-check">✓</div><div class="il-text">Funds candidate training, coaching, and development programs</div></div>
+      <div class="il-item"><div class="il-check">✓</div><div class="il-text">Supports travel and representation at national pageants</div></div>
+      <div class="il-item"><div class="il-check">✓</div><div class="il-text">Powers community events and Filipino cultural programming</div></div>
+      <div class="il-item"><div class="il-check">✓</div><div class="il-text">Enables financial literacy and leadership workshops</div></div>
+      <div class="il-item"><div class="il-check">✓</div><div class="il-text">Grows the Aces &amp; Queens Boot Camp Tour reach</div></div>
+      <div class="il-item"><div class="il-check">✓</div><div class="il-text">Builds a lasting sisterhood of empowered Filipina women</div></div>
+    </div>
+    <div class="donation-btns">
+      <a href="DONATION_LINK_HERE" class="btn-gold" target="_blank">Donate via PayPal</a>
+      <a href="#contact" class="btn-ghost-white">Become a Sponsor</a>
+    </div>
+    <p class="donation-contact">Kingdom Builder Foundation · 501(c)(3) Non-Profit Organization<br/>All donations are tax-deductible to the extent permitted by law.<br/><a href="mailto:joanne.aguilar@kingdombuilderfoundation.com">joanne.aguilar@kingdombuilderfoundation.com</a></p>
+  </div>
+</div>
+
+<section class="events" id="events">
+  <div class="container">
+    <span class="s-label">Gallery &amp; Events</span>
+    <h2 class="s-title">The MPNW Experience</h2>
+    <div class="gold-bar"></div>
+    <div class="events-grid">
+      <div class="ev large"><div class="ev-bg">📸</div><div class="ev-label"><span>Featured</span><strong>Coronation Night 2026</strong></div></div>
+      <div class="ev"><div class="ev-bg">🎤</div><div class="ev-label"><span>Training</span><strong>Public Speaking Workshop</strong></div></div>
+      <div class="ev"><div class="ev-bg">👗</div><div class="ev-label"><span>Runway</span><strong>Pasarela Training</strong></div></div>
+      <div class="ev"><div class="ev-bg">🌺</div><div class="ev-label"><span>Culture</span><strong>Filipino Heritage Night</strong></div></div>
+      <div class="ev"><div class="ev-bg">💼</div><div class="ev-label"><span>Empowerment</span><strong>Financial Literacy Forum</strong></div></div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;font-size:0.75rem;color:var(--muted);font-style:italic;">Gallery photos and upcoming events will be updated here throughout the season.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="s-label">Get in Touch</span>
+        <h2 class="s-title">Contact MPNW</h2>
+        <div class="gold-bar"></div>
+        <p>Whether you are a prospective candidate, boot camp registrant, potential sponsor, or community partner — we would love to hear from you.</p>
+        <div class="c-item"><div class="c-icon">✉️</div><div class="c-detail"><strong>Email</strong><span>joanne.aguilar@kingdombuilderfoundation.com</span></div></div>
+        <div class="c-item"><div class="c-icon">📱</div><div class="c-detail"><strong>Social Media</strong><span>Follow us for updates, events, and candidate spotlights</span></div></div>
+        <div class="c-item"><div class="c-icon">🌐</div><div class="c-detail"><strong>Pacific Northwest</strong><span>Representing WA · OR · ID · AK and beyond</span></div></div>
+        <div class="c-item"><div class="c-icon">🏛️</div><div class="c-detail"><strong>Kingdom Builder Foundation</strong><span>501(c)(3) Non-Profit Organization</span></div></div>
+        <div class="socials">
+          <a href="https://www.facebook.com/TheMissPhilippinesNW/" class="soc-btn" target="_blank">Facebook</a>
+          <a href="https://www.instagram.com/muph_northwestusa/" class="soc-btn" target="_blank">Instagram</a>
+          <a href="https://www.tiktok.com/@themissphilippinesnw" class="soc-btn" target="_blank">TikTok</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <img src="logo.jpeg" alt="MPNW Logo"/>
+        <strong>Miss Philippines Northwest USA</strong>
+        <p>Est. 2025 · Now in Year Two<br/>Kingdom Builder Foundation<br/>501(c)(3) Non-Profit<br/><br/>Serving WA · OR · ID · AK<br/>Open to Filipina women nationwide</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">The Miss Philippines Northwest USA</div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#queens">Queens</a>
+      <a href="#pageant">Pageant</a>
+      <a href="#bootcamp">Boot Camp</a>
+      <a href="#sponsors">Sponsors</a>
+      <a href="#donate">Donate</a>
+      <a href="#events">Events</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Miss Philippines Northwest USA · Kingdom Builder Foundation · Est. 2025 · 501(c)(3)</div>
+  </div>
+</footer>
+
+<script>
+function handleApply(){
+  const f=document.getElementById('a-fname').value.trim();
+  const l=document.getElementById('a-lname').value.trim();
+  const e=document.getElementById('a-email').value.trim();
+  const p=document.getElementById('a-phone').value.trim();
+  const d=document.getElementById('a-dob').value;
+  const h=document.getElementById('a-heritage').value;
+  if(!f||!l){alert('Please enter your full name.');return;}
+  if(!e){alert('Please enter your email address.');return;}
+  if(!p){alert('Please enter your phone number.');return;}
+  if(!d){alert('Please enter your date of birth.');return;}
+  if(!h){alert('Please select your Filipino heritage percentage.');return;}
+  document.querySelector('#pageant .f-submit').style.display='none';
+  const s=document.getElementById('apply-success');
+  s.style.display='block';
+  s.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function handleReg(){
+  const f=document.getElementById('r-fname').value.trim();
+  const l=document.getElementById('r-lname').value.trim();
+  const e=document.getElementById('r-email').value.trim();
+  const p=document.getElementById('r-phone').value.trim();
+  const d=document.getElementById('r-dob').value;
+  const c=document.querySelector('input[name="rcamp"]:checked');
+  if(!f||!l){alert('Please enter your full name.');return;}
+  if(!e){alert('Please enter your email address.');return;}
+  if(!p){alert('Please enter your phone number.');return;}
+  if(!d){alert('Please enter your date of birth.');return;}
+  if(!c){alert('Please select a boot camp city.');return;}
+  document.querySelector('#bootcamp .f-submit').style.display='none';
+  const s=document.getElementById('reg-success');
+  s.style.display='block';
+  s.scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+</body>
+</html>
